@@ -1175,7 +1175,7 @@ class Formatter implements \Phpcf\IFormatter
 
         if ($token == 'T_COMMENT') return $ret; // do not touch multiline comments
 
-        $this->appendWhiteSpace($ret);
+        //$this->appendWhiteSpace($ret);
 
         return $ret;
     }
