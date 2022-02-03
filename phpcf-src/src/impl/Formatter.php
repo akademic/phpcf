@@ -817,7 +817,7 @@ class Formatter implements \Phpcf\IFormatter
         ];
     }
 
-    protected function appendWhiteSpace(&$return_tokens, $text = "")
+    protected function appendWhiteSpace(&$return_tokens, $text = "\n")
     {
         $next_token = current($this->tokens);
         if ($next_token[0] !== T_WHITESPACE) {
@@ -1175,7 +1175,12 @@ class Formatter implements \Phpcf\IFormatter
 
         if ($token == 'T_COMMENT') return $ret; // do not touch multiline comments
 
-        $this->appendWhiteSpace($ret);
+        $text = '';
+        if(PHP_MAJOR_VERSION < 8) {
+            $text = "\n";
+        }
+
+        $this->appendWhiteSpace($ret, $text);
 
         return $ret;
     }
