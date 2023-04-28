@@ -303,7 +303,7 @@ $fsm_context_rules_class = [
         ';' => -1,
     ],
     'CTX_ARROW_FUNCTION_MATCH' => [
-        'T_END_HEREDOC' => ['NOW' => 'CTX_ARROW_FUNCTION_MATCH', 'NEXT' => -2],
+        'T_END_HEREDOC' => ['NOW' => 'CTX_ARROW_FUNCTION_MATCH', 'NEXT' => -1],
         ',' => -2,
         ',_LONG' => -2,
     ],
@@ -387,7 +387,7 @@ $fsm_context_rules = [
     'CTX_GENERIC_BLOCK' => $fsm_generic_code_block_rules,
     'CTX_MATCH_BLOCK' => [
         'T_CONSTANT_ENCAPSED_STRING' => ['CTX_MATCH_BLOCK_CASE'],
-        'T_DEFAULT' => 'CTX_MATCH_BLOCK_CASE',
+        'T_DEFAULT' => ['CTX_MATCH_BLOCK_CASE'],
     ] + $fsm_generic_code_block_rules,
     'CTX_MATCH_BLOCK_CASE' => [
         'T_DOUBLE_ARROW' => 'CTX_MATCH_BLOCK_RESULT',
