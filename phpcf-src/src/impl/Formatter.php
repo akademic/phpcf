@@ -438,9 +438,9 @@ class Formatter implements \Phpcf\IFormatter
                     PHPCF_KEY_LINE  => $this->current_line,
                 ];
                 $i_value = current($this->tokens);
-                next($this->tokens);
                 if ($i_value && ($i_value[0] === ';')) {
                     $heredoc_end_token[PHPCF_KEY_TEXT] .= ';';
+                    next($this->tokens);
                 }
                 $processed_tokens[] = $heredoc_end_token;
                 break;
